@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-07-13T02:37:35.576242Z",
   "crisis": {
-    "score": 40.4,
+    "score": 41.6,
     "trend30d": 6.4,
     "state": "黄色预警",
     "summary": "金融市场风险正在升温，但信用、银行和就业尚未同步恶化。请关注高收益债利差、波动率与初请失业金的后续变化。",
@@ -37,23 +37,44 @@
       },
       {
         "name": "信用风险",
-        "score": 48,
+        "score": 54,
         "weight": 20,
         "signal": "attention",
         "factors": [
           {
             "name": "BBB OAS",
-            "weight": 50,
+            "weight": 20,
             "value": "1.43%",
             "rule": "分位 > 80% 转为警告",
             "contribution": 46
           },
           {
             "name": "高收益债 OAS",
-            "weight": 50,
+            "weight": 30,
             "value": "2.70%",
-            "rule": "两者同步走阔触发共振",
-            "contribution": 50
+            "rule": "利差与违约率背离时提升风险",
+            "contribution": 22
+          },
+          {
+            "name": "高收益债实际违约率",
+            "weight": 25,
+            "value": "2.67%",
+            "rule": "逼近周期高点且高于杠杆贷款时提升风险",
+            "contribution": 72
+          },
+          {
+            "name": "杠杆贷款违约率",
+            "weight": 15,
+            "value": "2.29%",
+            "rule": "持续上升或超过历史均值时提升风险",
+            "contribution": 42
+          },
+          {
+            "name": "利差/违约率背离",
+            "weight": 10,
+            "value": "存在",
+            "rule": "低利差与上升违约率并存时提升风险",
+            "contribution": 80
           }
         ]
       },
@@ -428,6 +449,66 @@
       "frequency": "每月",
       "status": "success",
       "change": "低于 50 荣枯线"
+    },
+    {
+      "id": "HY_DEFAULT_RATE",
+      "name": "美国高收益债实际违约率",
+      "group": "信用",
+      "value": 2.67,
+      "unit": "%",
+      "percentile": 78,
+      "signal": "attention",
+      "observationDate": "2026-06-30",
+      "fetchedAt": "2026-07-13T02:45:00Z",
+      "frequency": "每月",
+      "status": "success",
+      "source": "J.P. Morgan Credit Research",
+      "change": "+64bp 环比；接近 2024 年初高点"
+    },
+    {
+      "id": "LEV_LOAN_DEFAULT_RATE",
+      "name": "美国杠杆贷款违约率",
+      "group": "信用",
+      "value": 2.29,
+      "unit": "%",
+      "percentile": 54,
+      "signal": "normal",
+      "observationDate": "2026-06-30",
+      "fetchedAt": "2026-07-13T02:45:00Z",
+      "frequency": "每月",
+      "status": "success",
+      "source": "J.P. Morgan Credit Research",
+      "change": "低于高收益债违约率"
+    },
+    {
+      "id": "HY_DEFAULT_EVENTS_H1",
+      "name": "高收益债违约事件数（上半年）",
+      "group": "信用",
+      "value": 27,
+      "unit": "起",
+      "percentile": 76,
+      "signal": "attention",
+      "observationDate": "2026-06-30",
+      "fetchedAt": "2026-07-13T02:45:00Z",
+      "frequency": "每半年",
+      "status": "success",
+      "source": "J.P. Morgan Credit Research",
+      "change": "总额 331 亿美元，同比 +3%"
+    },
+    {
+      "id": "SP500_INTEREST_COVERAGE",
+      "name": "标普 500 利息偿付倍数",
+      "group": "信用",
+      "value": null,
+      "unit": "x",
+      "percentile": null,
+      "signal": "normal",
+      "observationDate": "待接入",
+      "fetchedAt": "2026-07-13T02:45:00Z",
+      "frequency": "每季",
+      "status": "missing",
+      "source": "季度人工/授权适配器",
+      "change": "待导入财报汇总数据"
     }
   ],
   "history": [
@@ -459,14 +540,14 @@
   "transmission": [
     {
       "from": "市场流动性 35",
-      "to": "信用风险 48",
+      "to": "信用风险 54",
       "intensity": 0.68,
       "baseline": 0.55,
       "lag": "预计 2–3 周",
       "outlook": "信用分可能升至 55+，需观察利差是否持续走阔。"
     },
     {
-      "from": "信用风险 48",
+      "from": "信用风险 54",
       "to": "实体经济 43",
       "intensity": 0.41,
       "baseline": 0.5,
@@ -517,6 +598,12 @@
     }
   ],
   "alerts": [
+    {
+      "date": "2026-07-01",
+      "title": "高收益债违约率升至 2.67%",
+      "detail": "上半年发生 27 起违约、总额 331 亿美元；违约率自 2022 年 12 月以来首次高于杠杆贷款（2.29%），但 OAS 仍处低位。",
+      "signal": "warning"
+    },
     {
       "date": "2026-07-12",
       "title": "高收益债利差单日上升 12 个基点",

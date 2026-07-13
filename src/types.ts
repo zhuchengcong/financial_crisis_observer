@@ -1,5 +1,5 @@
 export type Signal = 'normal' | 'attention' | 'warning' | 'danger'
-export interface Indicator { id: string; name: string; group: string; value: number | null; unit: string; percentile: number | null; signal: Signal; observationDate: string; fetchedAt: string; frequency: string; status: 'success' | 'missing'; change?: string }
+export interface Indicator { id: string; name: string; group: string; value: number | null; unit: string; percentile: number | null; signal: Signal; observationDate: string; fetchedAt: string; frequency: string; status: 'success' | 'missing'; change?: string; source?: string }
 export interface ScoreFactor { name: string; weight: number; value: string; rule: string; contribution: number }
 export interface Subsystem { name: string; score: number; weight: number; signal: Signal; factors: ScoreFactor[] }
 export interface Transmission { from: string; to: string; intensity: number; baseline: number; lag: string; outlook: string }

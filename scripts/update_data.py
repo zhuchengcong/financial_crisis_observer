@@ -11,6 +11,8 @@ from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
+from adapters.manual_csv import read_latest
+
 ROOT = Path(__file__).parents[1]
 OUTPUT = ROOT / "public" / "data" / "dashboard.json"
 SERIES = {
@@ -32,6 +34,17 @@ SERIES = {
     "HOUST": ("美国新屋开工", "房地产", "K 套", "monthly", "lower_is_worse", "level"),
     "MORTGAGE30US": ("30 年期固定房贷利率", "房地产", "%", "weekly", "higher_is_worse", "level"),
 }
+
+# These inputs depend on licensed research or issuer-level financial statement
+# aggregation. They are preserved until their respective adapters refresh them.
+MANUAL_INDICATOR_IDS = (
+    "GPR_GLOBAL",
+    "SPGLOBAL_US_MFG_PMI",
+    "HY_DEFAULT_RATE",
+    "LEV_LOAN_DEFAULT_RATE",
+    "HY_DEFAULT_EVENTS_H1",
+    "SP500_INTEREST_COVERAGE",
+)
 
 def fred(series_id: str, key: str):
     params = urlencode({"series_id": series_id, "api_key": key, "file_type": "json", "sort_order": "desc", "limit": 260})
@@ -99,13 +112,23 @@ def main():
         print(f"FED_NET_LIQUIDITY: {exc}")
         if "FED_NET_LIQUIDITY" in old: indicators.append(old["FED_NET_LIQUIDITY"])
 
-    # GPR is not a FRED series. Preserve the separately maintained observation.
-    if "GPR_GLOBAL" in old:
-        indicators.append(old["GPR_GLOBAL"])
-    # S&P Global PMI requires a separately licensed source. Preserve the latest
-    # manually/adaptively maintained observation until that adapter is configured.
-    if "SPGLOBAL_US_MFG_PMI" in old:
-        indicators.append(old["SPGLOBAL_US_MFG_PMI"])
+    for indicator_id in MANUAL_INDICATOR_IDS:
+        if indicator_id in old:
+            indicators.append(old[indicator_id])
+
+    coverage = read_latest(ROOT / "scripts" / "manual_inputs" / "interest_coverage.csv", "SP500_INTEREST_COVERAGE")
+    if coverage:
+        for indicator in indicators:
+            if indicator["id"] == "SP500_INTEREST_COVERAGE":
+                indicator.update({
+                    "value": float(coverage["value"]),
+                    "observationDate": coverage["observation_date"],
+                    "source": coverage.get("source") or "季度人工/授权适配器",
+                    "fetchedAt": now,
+                    "status": "success",
+                    "change": "季度更新",
+                })
+                break
     payload["generatedAt"] = now
     payload["indicators"] = indicators
     subsystem_weights = {
