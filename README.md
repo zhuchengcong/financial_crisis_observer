@@ -7,6 +7,7 @@
 
 GitHub Pages本身就是静态 HTML、CSS、JavaScript 托管服务，也支持通过 GitHub Actions 构建和发布。公开仓库使用标准 GitHub Actions Runner 目前免费。([GitHub Docs](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages?utm_source=chatgpt.com))
 
+项目访问地址：https://zhuchengcong.github.io/financial_crisis_observer/
 ---
 
 # 一、架构
