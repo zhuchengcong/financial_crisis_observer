@@ -77,18 +77,98 @@
   .calendar-event { padding: 8px 0; }
 }
 
-.signal-panel .section-title > div > small { color: #667c84; font-size: 9px; white-space: nowrap; }
+/* Readability foundation: do not apply English-style tracking to Chinese metadata. */
+:root {
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+}
+small {
+  color: #b1c3c8;
+  font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1.45;
+}
+.eyebrow, .brand small {
+  letter-spacing: .08em;
+}
+
+@media (min-width: 900px) {
+  .headline-metrics span, .headline-metrics small,
+  .subsystem small, .signal-name small, .signal-meta,
+  .edge-head em, .transmission-list p, .strength mark,
+  .history-card p, .score-note, .calendar .disclaimer {
+    color: #b7c9ce;
+    font-family: "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif;
+    font-weight: 500;
+  }
+  .headline-metrics span, .headline-metrics small { font-size: 12px; }
+  .subsystem small { font-size: 12px; }
+  .signal-name small, .signal-meta { font-size: 12px; }
+  .edge-head em, .transmission-list p, .strength mark { font-size: 12px; }
+  .history-card p, .score-note, .calendar .disclaimer { font-size: 12px; }
+  .alert > div b, .alert > div p,
+  .calendar-event > div b, .calendar-event > div p,
+  .calendar-event > strong small { font-size: 12px; }
+}
+
+@media (min-width: 1600px) {
+  .signal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .signal-card { padding: 11px 13px 10px; }
+  .signal-name b { font-size: 13px; }
+  .signal-main > strong { font-size: 16px; }
+}
+
+/* Prevent any dense grid from widening the document and clipping the left edge. */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.shell, .command-bar, .grid, .lower, .signal-panel,
+.command-bar > *, .grid > *, .lower > *, .signal-card {
+  min-width: 0;
+}
+
+/* Risk signals are a complete dashboard section, not a nested scroll region. */
+.signal-grid {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+.signal-panel {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+@media (min-width: 1100px) {
+  .command-bar {
+    height: 300px;
+    min-height: 300px;
+    overflow: hidden;
+  }
+  .headline-metrics {
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    align-self: stretch;
+  }
+  .headline-metrics article {
+    min-height: 0;
+    overflow: hidden;
+  }
+}
+
+.signal-panel .section-title > div > small { color: #91a9b0; font-size: 10px; white-space: nowrap; }
 .signal-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; max-height: 470px; overflow: auto; padding-right: 4px; }
-.signal-card { min-width: 0; padding: 8px 10px 7px; border: 1px solid #20343c; border-radius: 6px; background: #0b171d; }
+.signal-card { min-width: 0; padding: 10px 12px 9px; border: 1px solid #29414a; border-radius: 6px; background: #0b171d; }
 .signal-main { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 9px; }
 .signal-name { min-width: 0; }
-.signal-name b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; color: #dce7ea; }
-.signal-name small { margin-top: 1px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 8px 'DM Mono', monospace; }
-.signal-main > strong { color: #e7eef0; font: 13px 'DM Mono', monospace; white-space: nowrap; }
-.signal-meta { display: flex; align-items: center; gap: 12px; margin-top: 5px; color: #71868e; font-size: 8px; white-space: nowrap; overflow: hidden; }
-.signal-meta b { color: #9cafb5; font-weight: 500; }
+.signal-name b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; color: #edf4f5; letter-spacing: .01em; }
+.signal-name small { margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #9db1b7; font: 9px 'DM Mono', monospace; }
+.signal-main > strong { color: #f2f7f8; font: 15px 'DM Mono', monospace; white-space: nowrap; }
+.signal-meta { display: flex; align-items: center; gap: 12px; margin-top: 7px; color: #a0b3b8; font-size: 10px; white-space: nowrap; overflow: hidden; }
+.signal-meta b { color: #d3e0e3; font-weight: 500; }
 .signal-meta em { margin-left: auto; color: #d0ae55; font-style: normal; overflow: hidden; text-overflow: ellipsis; }
-.percentile-track { height: 2px; margin-top: 5px; overflow: hidden; border-radius: 2px; background: #23343b; }
+.percentile-track { height: 3px; margin-top: 7px; overflow: hidden; border-radius: 2px; background: #294049; }
 .percentile-track i { display: block; height: 100%; }
 
 @media (min-width: 1600px) {
@@ -126,6 +206,42 @@
   .calendar-event > strong { display: flex; align-items: baseline; justify-content: flex-end; gap: 6px; font-size: 11px; white-space: nowrap; }
   .calendar-event > strong small { display: inline; margin: 0; font-size: 8px; }
   .calendar .disclaimer { margin-top: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+}
+
+/* Readability floor: dense does not mean sub-10px text on desktop. */
+@media (min-width: 900px) {
+  .brand small { font-size: 10px; color: #a1b5bb; }
+  .hero-title .eyebrow, .eyebrow { font-size: 10px; }
+  .headline-metrics span { font-size: 10px; color: #a2b6bc; }
+  .headline-metrics small { font-size: 10px; color: #a4b7bd; }
+  .command-bar .score small, .command-bar .score-wrap p { font-size: 10px; }
+  .subsystem small { font-size: 10px; color: #9eb1b7; }
+  .badge { font-size: 10px; }
+  .strength mark { font-size: 10px; color: #9bb0b6; }
+  .edge-head em, .transmission-list p { font-size: 10px; }
+  .history-card p { font-size: 10px; color: #a2b6bc; }
+  .signal-name small { font-size: 10px; }
+  .alert > div b, .alert > div p,
+  .calendar-event > div b, .calendar-event > div p,
+  .calendar-event > strong small { font-size: 10px; }
+  .calendar .disclaimer { font-size: 10px; }
+  .group-tag { font-size: 10px; }
+}
+
+/* First-screen analytical text needs a larger reading size than metadata. */
+@media (min-width: 1100px) {
+  .hero-title .eyebrow, .eyebrow { font-size: 11px; }
+  .headline-metrics span { font-size: 11px; }
+  .headline-metrics b { font-size: 16px; }
+  .headline-metrics small { font-size: 11px; }
+  .command-bar .score small, .command-bar .score-wrap p { font-size: 11px; }
+  .score-note { font-size: 11px; color: #9eb2b8; }
+  .edge-head { font-size: 11px; }
+  .edge-head em, .transmission-list p { font-size: 11px; line-height: 1.45; }
+  .strength mark { font-size: 11px; }
+  .history-card p { font-size: 11px; line-height: 1.5; }
+  .history-card .similar-row { font-size: 11px; }
+  .section-title > span, .similarity .section-title > small { font-size: 11px; }
 }
 
 @media (min-width: 1550px) {
@@ -278,7 +394,7 @@
 
 @media (min-width: 1100px) {
   .topbar { padding-bottom: 8px; }
-  .command-bar { height: 116px; }
+  .command-bar { height: 136px; }
   .headline-metrics article { padding-top: 5px; padding-bottom: 5px; }
   .grid { height: 216px; }
   .table-panel .section-title { min-height: 24px; }
