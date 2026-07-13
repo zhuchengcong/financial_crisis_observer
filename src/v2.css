@@ -161,8 +161,15 @@ html, body {
 .signal-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; max-height: 470px; overflow: auto; padding-right: 4px; }
 .signal-card { min-width: 0; padding: 10px 12px 9px; border: 1px solid #29414a; border-radius: 6px; background: #0b171d; }
 .signal-main { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 9px; }
-.signal-name { min-width: 0; }
+.signal-name { position: relative; min-width: 0; }
+.signal-title { display: flex; align-items: center; min-width: 0; gap: 5px; }
 .signal-name b { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; color: #edf4f5; letter-spacing: .01em; }
+.help-trigger { flex: none; width: 15px; height: 15px; padding: 0; border: 1px solid #4d7775; border-radius: 50%; background: #12302f; color: #72daca; cursor: help; font: 10px/13px Arial, sans-serif; }
+.help-trigger:hover, .help-trigger:focus-visible { color: #071016; background: #72daca; outline: none; }
+.indicator-tip { position: absolute; z-index: 10; left: 0; top: calc(100% + 7px); width: min(340px, calc(100vw - 48px)); padding: 11px 12px; border: 1px solid #3e716d; border-radius: 7px; background: #102126; box-shadow: 0 12px 28px #000a; color: #c8d8db; font-size: 12px; line-height: 1.55; }
+.indicator-tip strong { display: block; margin-bottom: 5px; color: #6ce1cc; font-size: 12px; }
+.indicator-tip p { margin: 4px 0; }
+.indicator-tip p b { display: inline; color: #f0f6f7; white-space: normal; font-size: inherit; }
 .signal-name small { margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #9db1b7; font: 9px 'DM Mono', monospace; }
 .signal-main > strong { color: #f2f7f8; font: 15px 'DM Mono', monospace; white-space: nowrap; }
 .signal-meta { display: flex; align-items: center; gap: 12px; margin-top: 7px; color: #a0b3b8; font-size: 10px; white-space: nowrap; overflow: hidden; }
