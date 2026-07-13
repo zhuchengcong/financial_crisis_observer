@@ -13,7 +13,8 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
       - name: Fetch FRED observations
-        env: { FRED_API_KEY: ${{ secrets.FRED_API_KEY }} }
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
         run: python scripts/update_data.py
       - name: Commit refreshed data
         run: |
