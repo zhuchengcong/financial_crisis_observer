@@ -21,6 +21,7 @@ htmlcov/
 .ipynb_checkpoints/
 
 # Build and packaging artifacts
+/node_modules/
 build/
 dist/
 *.egg-info/
@@ -31,10 +32,11 @@ dist/
 !.env.example
 
 # Local data, logs, and generated output
-data/
+/data/
 logs/
 output/
 *.log
+*.tsbuildinfo
 
 # IDE and operating-system files
 .vscode/

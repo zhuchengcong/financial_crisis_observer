@@ -1,0 +1,539 @@
+{
+  "generatedAt": "2026-07-13T00:56:25.820268Z",
+  "crisis": {
+    "score": 40.4,
+    "trend30d": 6.4,
+    "state": "黄色预警",
+    "summary": "金融市场风险正在升温，但信用、银行和就业尚未同步恶化。请关注高收益债利差、波动率与初请失业金的后续变化。",
+    "subsystems": [
+      {
+        "name": "市场流动性",
+        "score": 35,
+        "weight": 20,
+        "signal": "attention",
+        "factors": [
+          {
+            "name": "VIX 波动率",
+            "weight": 40,
+            "value": "15.84",
+            "rule": "VIX > 25 提升风险",
+            "contribution": 24
+          },
+          {
+            "name": "高收益债 OAS",
+            "weight": 30,
+            "value": "2.70%",
+            "rule": "OAS > 4% 提升风险",
+            "contribution": 6
+          },
+          {
+            "name": "MOVE 债券波动率",
+            "weight": 30,
+            "value": "112.4",
+            "rule": "MOVE > 130 提升风险",
+            "contribution": 58
+          }
+        ]
+      },
+      {
+        "name": "信用风险",
+        "score": 48,
+        "weight": 20,
+        "signal": "attention",
+        "factors": [
+          {
+            "name": "BBB OAS",
+            "weight": 50,
+            "value": "1.43%",
+            "rule": "分位 > 80% 转为警告",
+            "contribution": 46
+          },
+          {
+            "name": "高收益债 OAS",
+            "weight": 50,
+            "value": "2.70%",
+            "rule": "两者同步走阔触发共振",
+            "contribution": 50
+          }
+        ]
+      },
+      {
+        "name": "银行压力",
+        "score": 27,
+        "weight": 10,
+        "signal": "normal",
+        "factors": [
+          {
+            "name": "SOFR-联邦基金利率",
+            "weight": 60,
+            "value": "-2bp",
+            "rule": "利差 > 10bp 提升风险",
+            "contribution": 5
+          },
+          {
+            "name": "商业银行准备金",
+            "weight": 40,
+            "value": "3.31T",
+            "rule": "单月骤降 > 5% 提升风险",
+            "contribution": 38
+          }
+        ]
+      },
+      {
+        "name": "实体经济",
+        "score": 43,
+        "weight": 20,
+        "signal": "attention",
+        "factors": [
+          {
+            "name": "工业生产",
+            "weight": 30,
+            "value": "102.4",
+            "rule": "连续两月下滑提升风险",
+            "contribution": 45
+          },
+          {
+            "name": "零售销售",
+            "weight": 30,
+            "value": "735.1B",
+            "rule": "实际同比转负提升风险",
+            "contribution": 51
+          },
+          {
+            "name": "制造业 PMI",
+            "weight": 40,
+            "value": "48.5",
+            "rule": "PMI < 50 提升风险",
+            "contribution": 68
+          }
+        ]
+      },
+      {
+        "name": "就业压力",
+        "score": 31,
+        "weight": 15,
+        "signal": "normal",
+        "factors": [
+          {
+            "name": "初请失业金",
+            "weight": 50,
+            "value": "218K",
+            "rule": "四周均值 > 250K 提升风险",
+            "contribution": 28
+          },
+          {
+            "name": "失业率 / 萨姆规则",
+            "weight": 50,
+            "value": "4.2% / 0.31",
+            "rule": "萨姆规则 > 0.5 触发警告",
+            "contribution": 34
+          }
+        ]
+      },
+      {
+        "name": "政策异常",
+        "score": 52,
+        "weight": 15,
+        "signal": "warning",
+        "factors": [
+          {
+            "name": "美联储净流动性",
+            "weight": 60,
+            "value": "6.12T",
+            "rule": "月度下降 > 5% 提升风险",
+            "contribution": 63
+          },
+          {
+            "name": "2s10s 期限利差",
+            "weight": 40,
+            "value": "+38bp",
+            "rule": "倒挂 < -50bp 加深风险",
+            "contribution": 35
+          }
+        ]
+      }
+    ]
+  },
+  "indicators": [
+    {
+      "id": "VIXCLS",
+      "name": "VIX 波动率指数",
+      "group": "市场",
+      "value": 15.84,
+      "unit": "",
+      "percentile": 24,
+      "signal": "normal",
+      "observationDate": "2026-07-09",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每日",
+      "status": "success"
+    },
+    {
+      "id": "DGS2",
+      "name": "美国 2 年期国债收益率",
+      "group": "市场",
+      "value": 4.16,
+      "unit": "%",
+      "percentile": 97,
+      "signal": "normal",
+      "observationDate": "2026-07-09",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每日",
+      "status": "success"
+    },
+    {
+      "id": "DGS10",
+      "name": "美国 10 年期国债收益率",
+      "group": "市场",
+      "value": 4.54,
+      "unit": "%",
+      "percentile": 96,
+      "signal": "normal",
+      "observationDate": "2026-07-09",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每日",
+      "status": "success"
+    },
+    {
+      "id": "BAMLH0A0HYM2",
+      "name": "美国高收益债 OAS",
+      "group": "信用",
+      "value": 2.7,
+      "unit": "%",
+      "percentile": 6,
+      "signal": "normal",
+      "observationDate": "2026-07-09",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每日",
+      "status": "success"
+    },
+    {
+      "id": "BAMLC0A4CBBB",
+      "name": "BBB 公司债 OAS",
+      "group": "信用",
+      "value": 0.94,
+      "unit": "%",
+      "percentile": 19,
+      "signal": "normal",
+      "observationDate": "2026-07-09",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每日",
+      "status": "success"
+    },
+    {
+      "id": "ICSA",
+      "name": "初请失业金",
+      "group": "就业",
+      "value": 215000.0,
+      "unit": "",
+      "percentile": 37,
+      "signal": "normal",
+      "observationDate": "2026-07-04",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每周",
+      "status": "success"
+    },
+    {
+      "id": "UNRATE",
+      "name": "美国失业率",
+      "group": "就业",
+      "value": 4.2,
+      "unit": "%",
+      "percentile": 28,
+      "signal": "normal",
+      "observationDate": "2026-06-01",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每月",
+      "status": "success"
+    },
+    {
+      "id": "INDPRO",
+      "name": "工业生产指数",
+      "group": "实体经济",
+      "value": 102.647,
+      "unit": "",
+      "percentile": 93,
+      "signal": "normal",
+      "observationDate": "2026-05-01",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每月",
+      "status": "success"
+    },
+    {
+      "id": "RSAFS",
+      "name": "零售销售",
+      "group": "实体经济",
+      "value": 763705.0,
+      "unit": "M USD",
+      "percentile": 100,
+      "signal": "normal",
+      "observationDate": "2026-05-01",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每月",
+      "status": "success"
+    },
+    {
+      "id": "WALCL",
+      "name": "美联储总资产",
+      "group": "政策",
+      "value": 6735609.0,
+      "unit": "M USD",
+      "percentile": 25,
+      "signal": "normal",
+      "observationDate": "2026-07-08",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每周",
+      "status": "success"
+    },
+    {
+      "id": "CPIAUCSL",
+      "name": "美国 CPI 同比",
+      "group": "通胀",
+      "value": 4.27,
+      "unit": "%",
+      "percentile": 87,
+      "signal": "warning",
+      "observationDate": "2026-05-01",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每月",
+      "status": "success"
+    },
+    {
+      "id": "PCEPILFE",
+      "name": "美国核心 PCE 同比",
+      "group": "通胀",
+      "value": 3.412,
+      "unit": "%",
+      "percentile": 88,
+      "signal": "warning",
+      "observationDate": "2026-05-01",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每月",
+      "status": "success"
+    },
+    {
+      "id": "T5YIE",
+      "name": "5 年期盈亏平衡通胀率",
+      "group": "通胀",
+      "value": 2.28,
+      "unit": "%",
+      "percentile": 11,
+      "signal": "normal",
+      "observationDate": "2026-07-10",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每日",
+      "status": "success"
+    },
+    {
+      "id": "DTWEXBGS",
+      "name": "美元贸易加权指数",
+      "group": "外部冲击",
+      "value": 120.69,
+      "unit": "",
+      "percentile": 78,
+      "signal": "attention",
+      "observationDate": "2026-07-02",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每日",
+      "status": "success"
+    },
+    {
+      "id": "DCOILWTICO",
+      "name": "WTI 原油现货价格",
+      "group": "外部冲击",
+      "value": 69.6,
+      "unit": " USD/桶",
+      "percentile": 63,
+      "signal": "normal",
+      "observationDate": "2026-07-06",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每日",
+      "status": "success"
+    },
+    {
+      "id": "HOUST",
+      "name": "美国新屋开工",
+      "group": "房地产",
+      "value": 1177.0,
+      "unit": "K 套",
+      "percentile": 42,
+      "signal": "normal",
+      "observationDate": "2026-05-01",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每月",
+      "status": "success"
+    },
+    {
+      "id": "MORTGAGE30US",
+      "name": "30 年期固定房贷利率",
+      "group": "房地产",
+      "value": 6.49,
+      "unit": "%",
+      "percentile": 52,
+      "signal": "normal",
+      "observationDate": "2026-07-09",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每周",
+      "status": "success"
+    },
+    {
+      "id": "SOFR_FF_SPREAD",
+      "name": "SOFR-联邦基金利率利差",
+      "group": "银行间",
+      "value": -10.0,
+      "unit": "bp",
+      "percentile": null,
+      "signal": "normal",
+      "observationDate": "2026-07-09",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每日",
+      "status": "success"
+    },
+    {
+      "id": "FED_NET_LIQUIDITY",
+      "name": "美联储净流动性",
+      "group": "政策",
+      "value": 5.961,
+      "unit": "T USD",
+      "percentile": null,
+      "signal": "attention",
+      "observationDate": "2026-07-08",
+      "fetchedAt": "2026-07-13T00:56:25.820268Z",
+      "frequency": "每周",
+      "status": "success"
+    },
+    {
+      "id": "GPR_GLOBAL",
+      "name": "全球地缘政治风险指数",
+      "group": "外部冲击",
+      "value": 143.2,
+      "unit": "",
+      "percentile": 79,
+      "signal": "attention",
+      "observationDate": "2026-06-01",
+      "fetchedAt": "2026-07-13T00:25:52Z",
+      "frequency": "每月",
+      "status": "success"
+    },
+    {
+      "id": "SPGLOBAL_US_MFG_PMI",
+      "name": "美国制造业 PMI",
+      "group": "实体经济",
+      "value": 48.5,
+      "unit": "",
+      "percentile": 32,
+      "signal": "warning",
+      "observationDate": "2026-07-01",
+      "fetchedAt": "2026-07-13T00:48:35Z",
+      "frequency": "每月",
+      "status": "success",
+      "change": "低于 50 荣枯线"
+    }
+  ],
+  "history": [
+    {
+      "period": "2001 衰退",
+      "similarity": 61,
+      "matches": "科技估值偏高、制造业 PMI 走弱",
+      "differences": "当前信用利差显著低于 2001 年"
+    },
+    {
+      "period": "2008 金融危机",
+      "similarity": 28,
+      "matches": "银行间利差边际波动",
+      "differences": "缺乏房地产崩盘与信用衍生品失序信号"
+    },
+    {
+      "period": "2020 疫情冲击",
+      "similarity": 19,
+      "matches": "VIX 出现过短期脉冲",
+      "differences": "就业与消费未出现断崖式下跌"
+    },
+    {
+      "period": "2022 紧缩周期",
+      "similarity": 72,
+      "matches": "收益率曲线陡峭化、缩表、高通胀粘性",
+      "differences": "当前就业和信用环境更稳健"
+    }
+  ],
+  "transmission": [
+    {
+      "from": "市场流动性 35",
+      "to": "信用风险 48",
+      "intensity": 0.68,
+      "baseline": 0.55,
+      "lag": "预计 2–3 周",
+      "outlook": "信用分可能升至 55+，需观察利差是否持续走阔。"
+    },
+    {
+      "from": "信用风险 48",
+      "to": "实体经济 43",
+      "intensity": 0.41,
+      "baseline": 0.5,
+      "lag": "预计 1–2 个月",
+      "outlook": "当前传导偏弱，企业杠杆增速已提前放缓。"
+    },
+    {
+      "from": "实体经济 43",
+      "to": "就业压力 31",
+      "intensity": 0.33,
+      "baseline": 0.46,
+      "lag": "预计约 3 个月",
+      "outlook": "若实体持续低迷，失业率可能触及 4.5%。"
+    }
+  ],
+  "calendar": [
+    {
+      "date": "07-14 周二（美东）",
+      "name": "美国 6 月 CPI 环比",
+      "expected": "0.3%",
+      "previous": "0.2%",
+      "risk": "若高于 0.4%，降息预期将明显后移。",
+      "signal": "warning"
+    },
+    {
+      "date": "07-15 周三（美东）",
+      "name": "美国 6 月零售销售环比",
+      "expected": "0.2%",
+      "previous": "-0.1%",
+      "risk": "若转正，实体经济分项压力有望回落。",
+      "signal": "normal"
+    },
+    {
+      "date": "07-16 周四（美东）",
+      "name": "初请失业金",
+      "expected": "218K",
+      "previous": "215K",
+      "risk": "若突破 230K，就业评分将恶化。",
+      "signal": "attention"
+    },
+    {
+      "date": "07-17 周五（美东）",
+      "name": "密歇根消费者信心",
+      "expected": "68.5",
+      "previous": "68.2",
+      "risk": "连续下滑将加剧政策异常得分。",
+      "signal": "attention"
+    }
+  ],
+  "alerts": [
+    {
+      "date": "2026-07-12",
+      "title": "高收益债利差单日上升 12 个基点",
+      "detail": "信用利差扩大，需观察是否突破过去五年 80% 分位。",
+      "signal": "attention"
+    },
+    {
+      "date": "2026-07-10",
+      "title": "初请失业金四周均值连续上升",
+      "detail": "就业市场边际走弱，但尚未触发衰退规则。",
+      "signal": "attention"
+    },
+    {
+      "date": "2026-07-08",
+      "title": "收益率曲线继续走陡",
+      "detail": "市场对后续降息的预期增强。",
+      "signal": "normal"
+    }
+  ]
+}
