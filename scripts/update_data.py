@@ -114,6 +114,7 @@ def main():
         for indicator in payload["indicators"]:
             if indicator["id"] in SERIES or indicator["id"] == "SOFR_FF_SPREAD":
                 frequency = SERIES[indicator["id"]][3] if indicator["id"] in SERIES else "daily"
+                indicator.pop("freshnessNote", None)
                 indicator.update(freshness(indicator["id"], indicator["observationDate"], frequency, now))
         OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         return

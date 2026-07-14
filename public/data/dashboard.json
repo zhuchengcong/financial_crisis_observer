@@ -360,8 +360,7 @@
       "frequency": "每日",
       "status": "success",
       "freshness": "fresh",
-      "ageBusinessDays": 1,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "ageBusinessDays": 1
     },
     {
       "id": "DTWEXBGS",
