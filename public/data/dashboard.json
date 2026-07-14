@@ -187,7 +187,10 @@
       "observationDate": "2026-07-10",
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "DGS2",
@@ -200,7 +203,10 @@
       "observationDate": "2026-07-10",
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "DGS10",
@@ -213,7 +219,10 @@
       "observationDate": "2026-07-10",
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "BAMLH0A0HYM2",
@@ -226,7 +235,10 @@
       "observationDate": "2026-07-10",
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "BAMLC0A4CBBB",
@@ -239,7 +251,10 @@
       "observationDate": "2026-07-10",
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "ICSA",
@@ -343,7 +358,10 @@
       "observationDate": "2026-07-13",
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "ageBusinessDays": 2,
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "DTWEXBGS",
@@ -356,7 +374,10 @@
       "observationDate": "2026-07-10",
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "ageBusinessDays": 8,
+      "freshnessNote": "日频数据滞后 8 个交易日"
     },
     {
       "id": "DCOILWTICO",
@@ -369,7 +390,10 @@
       "observationDate": "2026-07-06",
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
-      "status": "success"
+      "status": "success",
+      "freshness": "source_delayed",
+      "ageBusinessDays": 6,
+      "freshnessNote": "上游 EIA/FRED 源延迟 6 个交易日；预计下一例行发布 2026-07-15"
     },
     {
       "id": "HOUST",
@@ -408,7 +432,10 @@
       "observationDate": "2026-07-10",
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "FED_NET_LIQUIDITY",

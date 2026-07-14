@@ -6,7 +6,7 @@ replaces data with zeroes.
 """
 from __future__ import annotations
 import json, os
-from datetime import datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import urlopen
@@ -66,17 +66,56 @@ def transformed(rows, method):
     values = [100 * (rows[i][1] / rows[i + 12][1] - 1) for i in range(len(rows) - 12)]
     return values[0], values
 
-def item(series_id, name, group, value, unit, p, sig, date, now, frequency):
-    return {"id": series_id, "name": name, "group": group, "value": round(value, 3), "unit": unit,
-            "percentile": p, "signal": sig, "observationDate": date, "fetchedAt": now,
+def business_days_since(observation_date: str, as_of: date) -> int:
+    """Count elapsed Monday-Friday days after an observation date."""
+    try:
+        observed = date.fromisoformat(observation_date)
+    except ValueError:
+        return 0
+    days, cursor = 0, observed + timedelta(days=1)
+    while cursor <= as_of:
+        if cursor.weekday() < 5:
+            days += 1
+        cursor += timedelta(days=1)
+    return days
+
+def freshness(series_id: str, observation_date: str, frequency: str, now: datetime):
+    if frequency != "daily":
+        return {}
+    age = business_days_since(observation_date, now.date())
+    if series_id == "DCOILWTICO":
+        if age <= 1:
+            return {"freshness": "fresh", "ageBusinessDays": age}
+        days_to_wednesday = (2 - now.weekday()) % 7 or 7
+        next_release = (now.date() + timedelta(days=days_to_wednesday)).isoformat()
+        return {
+            "freshness": "source_delayed",
+            "ageBusinessDays": age,
+            "freshnessNote": f"上游 EIA/FRED 源延迟 {age} 个交易日；预计下一例行发布 {next_release}",
+        }
+    if age > 1:
+        return {"freshness": "stale", "ageBusinessDays": age, "freshnessNote": f"日频数据滞后 {age} 个交易日"}
+    return {"freshness": "fresh", "ageBusinessDays": age}
+
+def item(series_id, name, group, value, unit, p, sig, observation_date, now, frequency):
+    record = {"id": series_id, "name": name, "group": group, "value": round(value, 3), "unit": unit,
+            "percentile": p, "signal": sig, "observationDate": observation_date, "fetchedAt": now,
             "frequency": frequency, "status": "success"}
+    record.update(freshness(series_id, observation_date, {"每日":"daily", "每周":"weekly", "每月":"monthly"}.get(frequency, frequency), datetime.fromisoformat(now.replace("Z", "+00:00"))))
+    return record
 
 def main():
     payload = json.loads(OUTPUT.read_text(encoding="utf-8"))
     old = {item["id"]: item for item in payload["indicators"]}
     key = os.getenv("FRED_API_KEY")
     if not key:
-        print("FRED_API_KEY is unavailable; keeping existing static observations.")
+        print("FRED_API_KEY is unavailable; keeping existing static observations and auditing freshness.")
+        now = datetime.now(timezone.utc)
+        for indicator in payload["indicators"]:
+            if indicator["id"] in SERIES or indicator["id"] == "SOFR_FF_SPREAD":
+                frequency = SERIES[indicator["id"]][3] if indicator["id"] in SERIES else "daily"
+                indicator.update(freshness(indicator["id"], indicator["observationDate"], frequency, now))
+        OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         return
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
     indicators = []
@@ -89,7 +128,10 @@ def main():
             indicators.append(item(series_id, name, group, value, unit, p, signal(p, direction), rows[0][0], now, {"daily":"每日", "weekly":"每周", "monthly":"每月"}[frequency]))
         except Exception as exc:
             print(f"{series_id}: {exc}")
-            if series_id in old: indicators.append(old[series_id])
+            if series_id in old:
+                retained = dict(old[series_id])
+                retained.update({"freshness": "stale", "freshnessNote": "本次抓取失败，保留上次成功值"})
+                indicators.append(retained)
             else: indicators.append({"id":series_id,"name":name,"group":group,"value":None,"unit":unit,"percentile":None,"signal":"normal","observationDate":"—","fetchedAt":now,"frequency":frequency,"status":"missing"})
 
     # Derived liquidity measures use the latest available observations. WALCL and
