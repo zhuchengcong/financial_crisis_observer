@@ -189,8 +189,8 @@
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 3,
-      "freshnessNote": "日频数据滞后 3 个交易日"
+      "ageBusinessDays": 2,
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "DGS2",
@@ -205,8 +205,8 @@
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 3,
-      "freshnessNote": "日频数据滞后 3 个交易日"
+      "ageBusinessDays": 2,
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "DGS10",
@@ -221,8 +221,8 @@
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 3,
-      "freshnessNote": "日频数据滞后 3 个交易日"
+      "ageBusinessDays": 2,
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "BAMLH0A0HYM2",
@@ -237,8 +237,8 @@
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 3,
-      "freshnessNote": "日频数据滞后 3 个交易日"
+      "ageBusinessDays": 2,
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "BAMLC0A4CBBB",
@@ -253,8 +253,8 @@
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 3,
-      "freshnessNote": "日频数据滞后 3 个交易日"
+      "ageBusinessDays": 2,
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "ICSA",
@@ -359,8 +359,8 @@
       "fetchedAt": "2026-07-14T04:18:12.755446Z",
       "frequency": "每日",
       "status": "success",
-      "freshness": "stale",
-      "ageBusinessDays": 2,
+      "freshness": "fresh",
+      "ageBusinessDays": 1,
       "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
@@ -376,8 +376,8 @@
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 8,
-      "freshnessNote": "日频数据滞后 8 个交易日"
+      "ageBusinessDays": 2,
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "DCOILWTICO",
@@ -434,8 +434,8 @@
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 3,
-      "freshnessNote": "日频数据滞后 3 个交易日"
+      "ageBusinessDays": 2,
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "FED_NET_LIQUIDITY",
