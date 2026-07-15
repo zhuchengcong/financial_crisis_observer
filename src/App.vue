@@ -27,8 +27,10 @@ const indicatorOrder = [
   'DTWEXBGS', 'DCOILWTICO', 'GPR_GLOBAL',
 ]
 const indicatorRank = new Map(indicatorOrder.map((id, index) => [id, index]))
+// The adapter is retained for a future licensed quarterly feed; do not present an empty manual metric to users.
+const hiddenIndicatorIds = new Set(['SP500_INTEREST_COVERAGE'])
 const indicators = computed(() => {
-  const filtered = data.value?.indicators.filter(i => activeGroup.value === '全部' || i.group === activeGroup.value) ?? []
+  const filtered = data.value?.indicators.filter(i => !hiddenIndicatorIds.has(i.id) && (activeGroup.value === '全部' || i.group === activeGroup.value)) ?? []
   return [...filtered].sort((left, right) => (indicatorRank.get(left.id) ?? Number.MAX_SAFE_INTEGER) - (indicatorRank.get(right.id) ?? Number.MAX_SAFE_INTEGER))
 })
 const headlineIds = ['VIXCLS', 'BAMLH0A0HYM2', 'CPIAUCSL', 'PCEPILFE', 'T5YIE', 'MORTGAGE30US', 'SOFR_FF_SPREAD', 'FED_NET_LIQUIDITY']
