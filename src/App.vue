@@ -8,7 +8,29 @@ const data = ref<DashboardData | null>(null)
 const error = ref('')
 const activeGroup = ref('全部')
 const groups = computed(() => ['全部', ...new Set(data.value?.indicators.map(i => i.group) ?? [])])
-const indicators = computed(() => data.value?.indicators.filter(i => activeGroup.value === '全部' || i.group === activeGroup.value) ?? [])
+// Keep indicators that explain the same transmission channel next to each other.
+// This order applies both to the full grid and each category filter.
+const indicatorOrder = [
+  // Market rates and volatility
+  'VIXCLS', 'DGS2', 'DGS10', 'T5YIE',
+  // Inflation: realised prices followed by market expectations
+  'CPIAUCSL', 'PCEPILFE',
+  // Credit: pricing, realised defaults, then debt-service capacity
+  'BAMLC0A4CBBB', 'BAMLH0A0HYM2', 'HY_DEFAULT_RATE', 'LEV_LOAN_DEFAULT_RATE', 'HY_DEFAULT_EVENTS_H1', 'SP500_INTEREST_COVERAGE',
+  // Employment and real economy
+  'ICSA', 'UNRATE', 'SPGLOBAL_US_MFG_PMI', 'INDPRO', 'RSAFS',
+  // Interest-rate transmission into housing
+  'MORTGAGE30US', 'HOUST',
+  // Policy liquidity: balance sheet and usable liquidity must be compared together
+  'WALCL', 'FED_NET_LIQUIDITY', 'SOFR_FF_SPREAD',
+  // External shocks
+  'DTWEXBGS', 'DCOILWTICO', 'GPR_GLOBAL',
+]
+const indicatorRank = new Map(indicatorOrder.map((id, index) => [id, index]))
+const indicators = computed(() => {
+  const filtered = data.value?.indicators.filter(i => activeGroup.value === '全部' || i.group === activeGroup.value) ?? []
+  return [...filtered].sort((left, right) => (indicatorRank.get(left.id) ?? Number.MAX_SAFE_INTEGER) - (indicatorRank.get(right.id) ?? Number.MAX_SAFE_INTEGER))
+})
 const headlineIds = ['VIXCLS', 'BAMLH0A0HYM2', 'CPIAUCSL', 'PCEPILFE', 'T5YIE', 'MORTGAGE30US', 'SOFR_FF_SPREAD', 'FED_NET_LIQUIDITY']
 const headlineIndicators = computed(() => headlineIds.map(id => data.value?.indicators.find(i => i.id === id)).filter((i): i is NonNullable<typeof i> => Boolean(i)))
 const expandedScore = ref<string | null>(null)
