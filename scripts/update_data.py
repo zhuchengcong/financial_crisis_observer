@@ -9,7 +9,7 @@ import json, os
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlencode
-from urllib.request import urlopen
+from urllib.request import Request, urlopen
 
 from adapters.manual_csv import read_latest
 
@@ -52,6 +52,22 @@ def fred(series_id: str, key: str):
         rows = json.load(response)["observations"]
     return [(x["date"], float(x["value"])) for x in rows if x["value"] != "."]
 
+def yahoo_wti():
+    """Latest daily NYMEX WTI front-month futures closes (CL=F), no API key."""
+    url = "https://query1.finance.yahoo.com/v8/finance/chart/CL%3DF?range=2y&interval=1d"
+    request = Request(url, headers={"User-Agent": "Mozilla/5.0 financial-crisis-observer/1.0", "Accept": "application/json"})
+    with urlopen(request, timeout=30) as response:
+        result = json.load(response)["chart"]["result"][0]
+    closes = result["indicators"]["quote"][0]["close"]
+    rows = [
+        (datetime.fromtimestamp(timestamp, timezone.utc).date().isoformat(), float(close))
+        for timestamp, close in zip(result["timestamp"], closes)
+        if close is not None
+    ]
+    if not rows:
+        raise ValueError("Yahoo Finance returned no WTI close")
+    return list(reversed(rows))
+
 def percentile(values, value):
     return round(100 * sum(x <= value for x in values) / len(values)) if values else None
 
@@ -79,11 +95,11 @@ def business_days_since(observation_date: str, as_of: date) -> int:
         cursor += timedelta(days=1)
     return days
 
-def freshness(series_id: str, observation_date: str, frequency: str, now: datetime):
+def freshness(series_id: str, observation_date: str, frequency: str, now: datetime, source_delayed: bool = False):
     if frequency != "daily":
         return {}
     age = business_days_since(observation_date, now.date())
-    if series_id == "DCOILWTICO":
+    if series_id == "DCOILWTICO" and source_delayed:
         if age <= 1:
             return {"freshness": "fresh", "ageBusinessDays": age}
         days_to_wednesday = (2 - now.weekday()) % 7 or 7
@@ -97,11 +113,11 @@ def freshness(series_id: str, observation_date: str, frequency: str, now: dateti
         return {"freshness": "stale", "ageBusinessDays": age, "freshnessNote": f"日频数据滞后 {age} 个交易日"}
     return {"freshness": "fresh", "ageBusinessDays": age}
 
-def item(series_id, name, group, value, unit, p, sig, observation_date, now, frequency):
+def item(series_id, name, group, value, unit, p, sig, observation_date, now, frequency, source_delayed=False):
     record = {"id": series_id, "name": name, "group": group, "value": round(value, 3), "unit": unit,
             "percentile": p, "signal": sig, "observationDate": observation_date, "fetchedAt": now,
             "frequency": frequency, "status": "success"}
-    record.update(freshness(series_id, observation_date, {"每日":"daily", "每周":"weekly", "每月":"monthly"}.get(frequency, frequency), datetime.fromisoformat(now.replace("Z", "+00:00"))))
+    record.update(freshness(series_id, observation_date, {"每日":"daily", "每周":"weekly", "每月":"monthly"}.get(frequency, frequency), datetime.fromisoformat(now.replace("Z", "+00:00")), source_delayed))
     return record
 
 def main():
@@ -115,7 +131,8 @@ def main():
             if indicator["id"] in SERIES or indicator["id"] == "SOFR_FF_SPREAD":
                 frequency = SERIES[indicator["id"]][3] if indicator["id"] in SERIES else "daily"
                 indicator.pop("freshnessNote", None)
-                indicator.update(freshness(indicator["id"], indicator["observationDate"], frequency, now))
+                uses_eia_fallback = indicator["id"] == "DCOILWTICO" and "EIA/FRED" in indicator.get("source", "")
+                indicator.update(freshness(indicator["id"], indicator["observationDate"], frequency, now, uses_eia_fallback))
         OUTPUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
         return
     now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
@@ -123,10 +140,26 @@ def main():
     for series_id, config in SERIES.items():
         name, group, unit, frequency, direction, method = config
         try:
-            rows = fred(series_id, key)
+            source_delayed = False
+            source = None
+            if series_id == "DCOILWTICO":
+                try:
+                    rows = yahoo_wti()
+                    name = "WTI 原油近月期货结算价"
+                    source = "Yahoo Finance · NYMEX CL=F"
+                except Exception as market_exc:
+                    print(f"DCOILWTICO market source unavailable: {market_exc}; falling back to FRED/EIA")
+                    rows = fred(series_id, key)
+                    source_delayed = True
+                    source = "FRED · EIA 现货（回退）"
+            else:
+                rows = fred(series_id, key)
             value, values = transformed(rows, method)
             p = percentile(values, value)
-            indicators.append(item(series_id, name, group, value, unit, p, signal(p, direction), rows[0][0], now, {"daily":"每日", "weekly":"每周", "monthly":"每月"}[frequency]))
+            record = item(series_id, name, group, value, unit, p, signal(p, direction), rows[0][0], now, {"daily":"每日", "weekly":"每周", "monthly":"每月"}[frequency], source_delayed)
+            if source:
+                record["source"] = source
+            indicators.append(record)
         except Exception as exc:
             print(f"{series_id}: {exc}")
             if series_id in old:
