@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T06:04:32.683990Z",
+  "generatedAt": "2026-10-22T00:41:17.345885Z",
   "crisis": {
     "score": 41.6,
     "trend30d": 6.4,
@@ -190,7 +190,7 @@
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "DGS2",
@@ -206,7 +206,7 @@
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "DGS10",
@@ -222,7 +222,7 @@
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "BAMLH0A0HYM2",
@@ -238,7 +238,7 @@
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "BAMLC0A4CBBB",
@@ -254,7 +254,7 @@
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "ICSA",
@@ -267,7 +267,9 @@
       "observationDate": "2026-10-10",
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每周",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "UNRATE",
@@ -280,7 +282,9 @@
       "observationDate": "2026-09-01",
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每月",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "INDPRO",
@@ -293,7 +297,9 @@
       "observationDate": "2026-09-01",
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每月",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "RSAFS",
@@ -306,7 +312,9 @@
       "observationDate": "2026-09-01",
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每月",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "WALCL",
@@ -319,7 +327,9 @@
       "observationDate": "2026-10-14",
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每周",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "CPIAUCSL",
@@ -332,7 +342,9 @@
       "observationDate": "2026-09-01",
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每月",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "PCEPILFE",
@@ -345,7 +357,9 @@
       "observationDate": "2026-08-01",
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每月",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "T5YIE",
@@ -359,8 +373,9 @@
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每日",
       "status": "success",
-      "freshness": "fresh",
-      "ageBusinessDays": 1
+      "freshness": "stale",
+      "ageBusinessDays": 1,
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "DTWEXBGS",
@@ -376,18 +391,18 @@
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 3,
-      "freshnessNote": "日频数据滞后 3 个交易日"
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "DCOILWTICO",
       "name": "WTI 原油近月期货结算价",
       "group": "外部冲击",
-      "value": 99.28,
+      "value": 98.07,
       "unit": " USD/桶",
-      "percentile": 94,
+      "percentile": 93,
       "signal": "danger",
-      "observationDate": "2026-10-21",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "observationDate": "2026-10-22",
+      "fetchedAt": "2026-10-22T00:41:17.345885Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "fresh",
@@ -405,7 +420,9 @@
       "observationDate": "2026-09-01",
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每月",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "MORTGAGE30US",
@@ -418,7 +435,9 @@
       "observationDate": "2026-10-15",
       "fetchedAt": "2026-10-21T06:04:32.683990Z",
       "frequency": "每周",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "SOFR_FF_SPREAD",
