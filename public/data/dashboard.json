@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T00:41:17.345885Z",
+  "generatedAt": "2026-10-22T06:08:34.106735Z",
   "crisis": {
     "score": 41.6,
     "trend30d": 6.4,
@@ -180,65 +180,65 @@
       "id": "VIXCLS",
       "name": "VIX 波动率指数",
       "group": "市场",
-      "value": 18.44,
+      "value": 17.31,
       "unit": "",
-      "percentile": 69,
-      "signal": "attention",
-      "observationDate": "2026-10-19",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "percentile": 55,
+      "signal": "normal",
+      "observationDate": "2026-10-20",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "DGS2",
       "name": "美国 2 年期国债收益率",
       "group": "市场",
-      "value": 4.77,
+      "value": 4.79,
       "unit": "%",
-      "percentile": 95,
+      "percentile": 96,
       "signal": "normal",
-      "observationDate": "2026-10-19",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "observationDate": "2026-10-20",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "DGS10",
       "name": "美国 10 年期国债收益率",
       "group": "市场",
-      "value": 5.15,
+      "value": 5.12,
       "unit": "%",
       "percentile": 94,
       "signal": "normal",
-      "observationDate": "2026-10-19",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "observationDate": "2026-10-20",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "BAMLH0A0HYM2",
       "name": "美国高收益债 OAS",
       "group": "信用",
-      "value": 3.29,
+      "value": 3.33,
       "unit": "%",
       "percentile": 99,
       "signal": "danger",
-      "observationDate": "2026-10-19",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "observationDate": "2026-10-20",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "BAMLC0A4CBBB",
@@ -248,13 +248,13 @@
       "unit": "%",
       "percentile": 93,
       "signal": "danger",
-      "observationDate": "2026-10-19",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "observationDate": "2026-10-20",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
       "ageBusinessDays": 2,
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "ICSA",
@@ -265,11 +265,9 @@
       "percentile": 5,
       "signal": "normal",
       "observationDate": "2026-10-10",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每周",
-      "status": "success",
-      "freshness": "stale",
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "status": "success"
     },
     {
       "id": "UNRATE",
@@ -280,11 +278,9 @@
       "percentile": 29,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每月",
-      "status": "success",
-      "freshness": "stale",
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "status": "success"
     },
     {
       "id": "INDPRO",
@@ -295,11 +291,9 @@
       "percentile": 98,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每月",
-      "status": "success",
-      "freshness": "stale",
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "status": "success"
     },
     {
       "id": "RSAFS",
@@ -310,11 +304,9 @@
       "percentile": 100,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每月",
-      "status": "success",
-      "freshness": "stale",
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "status": "success"
     },
     {
       "id": "WALCL",
@@ -325,11 +317,9 @@
       "percentile": 31,
       "signal": "normal",
       "observationDate": "2026-10-14",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每周",
-      "status": "success",
-      "freshness": "stale",
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "status": "success"
     },
     {
       "id": "CPIAUCSL",
@@ -340,11 +330,9 @@
       "percentile": 85,
       "signal": "warning",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每月",
-      "status": "success",
-      "freshness": "stale",
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "status": "success"
     },
     {
       "id": "PCEPILFE",
@@ -355,27 +343,24 @@
       "percentile": 83,
       "signal": "warning",
       "observationDate": "2026-08-01",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每月",
-      "status": "success",
-      "freshness": "stale",
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "status": "success"
     },
     {
       "id": "T5YIE",
       "name": "5 年期盈亏平衡通胀率",
       "group": "通胀",
-      "value": 2.39,
+      "value": 2.4,
       "unit": "%",
-      "percentile": 55,
+      "percentile": 60,
       "signal": "normal",
-      "observationDate": "2026-10-20",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "observationDate": "2026-10-21",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每日",
       "status": "success",
-      "freshness": "stale",
-      "ageBusinessDays": 1,
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "freshness": "fresh",
+      "ageBusinessDays": 1
     },
     {
       "id": "DTWEXBGS",
@@ -386,23 +371,23 @@
       "percentile": 94,
       "signal": "danger",
       "observationDate": "2026-10-16",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 3,
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "ageBusinessDays": 4,
+      "freshnessNote": "日频数据滞后 4 个交易日"
     },
     {
       "id": "DCOILWTICO",
       "name": "WTI 原油近月期货结算价",
       "group": "外部冲击",
-      "value": 98.07,
+      "value": 99.26,
       "unit": " USD/桶",
-      "percentile": 93,
+      "percentile": 94,
       "signal": "danger",
       "observationDate": "2026-10-22",
-      "fetchedAt": "2026-10-22T00:41:17.345885Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "fresh",
@@ -418,11 +403,9 @@
       "percentile": 48,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每月",
-      "status": "success",
-      "freshness": "stale",
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "status": "success"
     },
     {
       "id": "MORTGAGE30US",
@@ -433,22 +416,20 @@
       "percentile": 97,
       "signal": "danger",
       "observationDate": "2026-10-15",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每周",
-      "status": "success",
-      "freshness": "stale",
-      "freshnessNote": "本次抓取失败，保留上次成功值"
+      "status": "success"
     },
     {
       "id": "SOFR_FF_SPREAD",
       "name": "SOFR-联邦基金利率利差",
       "group": "银行间",
-      "value": 12.0,
+      "value": 13.0,
       "unit": "bp",
       "percentile": null,
       "signal": "warning",
-      "observationDate": "2026-10-19",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "observationDate": "2026-10-20",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
@@ -464,7 +445,7 @@
       "percentile": null,
       "signal": "attention",
       "observationDate": "2026-10-14",
-      "fetchedAt": "2026-10-21T06:04:32.683990Z",
+      "fetchedAt": "2026-10-22T06:08:34.106735Z",
       "frequency": "每周",
       "status": "success"
     },
