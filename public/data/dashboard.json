@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T01:10:03.586909Z",
+  "generatedAt": "2026-11-01T07:36:10.812847Z",
   "crisis": {
     "score": 41.6,
     "trend30d": 6.4,
@@ -188,8 +188,9 @@
       "fetchedAt": "2026-11-01T01:10:03.586909Z",
       "frequency": "每日",
       "status": "success",
-      "freshness": "fresh",
-      "ageBusinessDays": 1
+      "freshness": "stale",
+      "ageBusinessDays": 1,
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "DGS2",
@@ -203,8 +204,9 @@
       "fetchedAt": "2026-11-01T01:10:03.586909Z",
       "frequency": "每日",
       "status": "success",
-      "freshness": "fresh",
-      "ageBusinessDays": 1
+      "freshness": "stale",
+      "ageBusinessDays": 1,
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "DGS10",
@@ -218,8 +220,9 @@
       "fetchedAt": "2026-11-01T01:10:03.586909Z",
       "frequency": "每日",
       "status": "success",
-      "freshness": "fresh",
-      "ageBusinessDays": 1
+      "freshness": "stale",
+      "ageBusinessDays": 1,
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "BAMLH0A0HYM2",
@@ -230,7 +233,7 @@
       "percentile": 95,
       "signal": "danger",
       "observationDate": "2026-10-29",
-      "fetchedAt": "2026-11-01T01:10:03.586909Z",
+      "fetchedAt": "2026-11-01T07:36:10.812847Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "fresh",
@@ -248,8 +251,9 @@
       "fetchedAt": "2026-11-01T01:10:03.586909Z",
       "frequency": "每日",
       "status": "success",
-      "freshness": "fresh",
-      "ageBusinessDays": 1
+      "freshness": "stale",
+      "ageBusinessDays": 1,
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "ICSA",
@@ -260,7 +264,7 @@
       "percentile": 2,
       "signal": "normal",
       "observationDate": "2026-10-24",
-      "fetchedAt": "2026-11-01T01:10:03.586909Z",
+      "fetchedAt": "2026-11-01T07:36:10.812847Z",
       "frequency": "每周",
       "status": "success"
     },
@@ -273,7 +277,7 @@
       "percentile": 29,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-11-01T01:10:03.586909Z",
+      "fetchedAt": "2026-11-01T07:36:10.812847Z",
       "frequency": "每月",
       "status": "success"
     },
@@ -286,7 +290,7 @@
       "percentile": 98,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-11-01T01:10:03.586909Z",
+      "fetchedAt": "2026-11-01T07:36:10.812847Z",
       "frequency": "每月",
       "status": "success"
     },
@@ -299,7 +303,7 @@
       "percentile": 100,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-11-01T01:10:03.586909Z",
+      "fetchedAt": "2026-11-01T07:36:10.812847Z",
       "frequency": "每月",
       "status": "success"
     },
@@ -314,7 +318,9 @@
       "observationDate": "2026-10-28",
       "fetchedAt": "2026-11-01T01:10:03.586909Z",
       "frequency": "每周",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "CPIAUCSL",
@@ -327,7 +333,9 @@
       "observationDate": "2026-09-01",
       "fetchedAt": "2026-11-01T01:10:03.586909Z",
       "frequency": "每月",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "PCEPILFE",
@@ -340,7 +348,9 @@
       "observationDate": "2026-09-01",
       "fetchedAt": "2026-11-01T01:10:03.586909Z",
       "frequency": "每月",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "T5YIE",
@@ -351,7 +361,7 @@
       "percentile": 67,
       "signal": "attention",
       "observationDate": "2026-10-30",
-      "fetchedAt": "2026-11-01T01:10:03.586909Z",
+      "fetchedAt": "2026-11-01T07:36:10.812847Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "fresh",
@@ -366,7 +376,7 @@
       "percentile": 91,
       "signal": "danger",
       "observationDate": "2026-10-23",
-      "fetchedAt": "2026-11-01T01:10:03.586909Z",
+      "fetchedAt": "2026-11-01T07:36:10.812847Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
@@ -382,7 +392,7 @@
       "percentile": 98,
       "signal": "danger",
       "observationDate": "2026-10-30",
-      "fetchedAt": "2026-11-01T01:10:03.586909Z",
+      "fetchedAt": "2026-11-01T07:36:10.812847Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "fresh",
@@ -400,7 +410,9 @@
       "observationDate": "2026-09-01",
       "fetchedAt": "2026-11-01T01:10:03.586909Z",
       "frequency": "每月",
-      "status": "success"
+      "status": "success",
+      "freshness": "stale",
+      "freshnessNote": "本次抓取失败，保留上次成功值"
     },
     {
       "id": "MORTGAGE30US",
@@ -411,7 +423,7 @@
       "percentile": 95,
       "signal": "danger",
       "observationDate": "2026-10-29",
-      "fetchedAt": "2026-11-01T01:10:03.586909Z",
+      "fetchedAt": "2026-11-01T07:36:10.812847Z",
       "frequency": "每周",
       "status": "success"
     },
