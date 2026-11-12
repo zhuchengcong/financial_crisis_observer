@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T07:46:08.466630Z",
+  "generatedAt": "2026-11-12T02:59:30.716077Z",
   "crisis": {
     "score": 41.6,
     "trend30d": 6.4,
@@ -180,12 +180,12 @@
       "id": "VIXCLS",
       "name": "VIX 波动率指数",
       "group": "市场",
-      "value": 19.92,
+      "value": 19.46,
       "unit": "",
-      "percentile": 81,
-      "signal": "warning",
-      "observationDate": "2026-11-09",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "percentile": 77,
+      "signal": "attention",
+      "observationDate": "2026-11-10",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
@@ -201,12 +201,12 @@
       "percentile": 85,
       "signal": "normal",
       "observationDate": "2026-11-09",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "DGS10",
@@ -217,12 +217,12 @@
       "percentile": 84,
       "signal": "normal",
       "observationDate": "2026-11-09",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "BAMLH0A0HYM2",
@@ -233,12 +233,12 @@
       "percentile": 97,
       "signal": "danger",
       "observationDate": "2026-11-09",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "BAMLC0A4CBBB",
@@ -249,12 +249,12 @@
       "percentile": 96,
       "signal": "danger",
       "observationDate": "2026-11-09",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "ICSA",
@@ -265,7 +265,7 @@
       "percentile": 1,
       "signal": "normal",
       "observationDate": "2026-10-31",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每周",
       "status": "success"
     },
@@ -278,7 +278,7 @@
       "percentile": 26,
       "signal": "normal",
       "observationDate": "2026-10-01",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每月",
       "status": "success"
     },
@@ -291,7 +291,7 @@
       "percentile": 98,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每月",
       "status": "success"
     },
@@ -304,7 +304,7 @@
       "percentile": 100,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每月",
       "status": "success"
     },
@@ -317,7 +317,7 @@
       "percentile": 31,
       "signal": "normal",
       "observationDate": "2026-11-04",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每周",
       "status": "success"
     },
@@ -330,7 +330,7 @@
       "percentile": 85,
       "signal": "warning",
       "observationDate": "2026-10-01",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每月",
       "status": "success"
     },
@@ -343,7 +343,7 @@
       "percentile": 85,
       "signal": "warning",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每月",
       "status": "success"
     },
@@ -356,11 +356,12 @@
       "percentile": 13,
       "signal": "normal",
       "observationDate": "2026-11-10",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每日",
       "status": "success",
-      "freshness": "fresh",
-      "ageBusinessDays": 1
+      "freshness": "stale",
+      "ageBusinessDays": 2,
+      "freshnessNote": "日频数据滞后 2 个交易日"
     },
     {
       "id": "DTWEXBGS",
@@ -371,23 +372,23 @@
       "percentile": 99,
       "signal": "danger",
       "observationDate": "2026-11-06",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 3,
-      "freshnessNote": "日频数据滞后 3 个交易日"
+      "ageBusinessDays": 4,
+      "freshnessNote": "日频数据滞后 4 个交易日"
     },
     {
       "id": "DCOILWTICO",
       "name": "WTI 原油近月期货结算价",
       "group": "外部冲击",
-      "value": 86.17,
+      "value": 85.82,
       "unit": " USD/桶",
       "percentile": 76,
       "signal": "attention",
-      "observationDate": "2026-11-11",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "observationDate": "2026-11-12",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "fresh",
@@ -403,7 +404,7 @@
       "percentile": 48,
       "signal": "normal",
       "observationDate": "2026-09-01",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每月",
       "status": "success"
     },
@@ -416,7 +417,7 @@
       "percentile": 93,
       "signal": "danger",
       "observationDate": "2026-11-05",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每周",
       "status": "success"
     },
@@ -429,12 +430,12 @@
       "percentile": null,
       "signal": "normal",
       "observationDate": "2026-11-09",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每日",
       "status": "success",
       "freshness": "stale",
-      "ageBusinessDays": 2,
-      "freshnessNote": "日频数据滞后 2 个交易日"
+      "ageBusinessDays": 3,
+      "freshnessNote": "日频数据滞后 3 个交易日"
     },
     {
       "id": "FED_NET_LIQUIDITY",
@@ -445,7 +446,7 @@
       "percentile": null,
       "signal": "attention",
       "observationDate": "2026-11-04",
-      "fetchedAt": "2026-11-11T07:46:08.466630Z",
+      "fetchedAt": "2026-11-12T02:59:30.716077Z",
       "frequency": "每周",
       "status": "success"
     },
